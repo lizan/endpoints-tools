@@ -61,8 +61,10 @@ http {
     listen ${port.port} backlog=16384;
   % elif port.proto == 'http2':
     listen ${port.port} http2 backlog=16384;
+    http2_max_requests 1073741824;
   % elif port.proto == 'ssl':
     listen ${port.port} ssl http2 backlog=16384;
+    http2_max_requests 1073741824;
     ssl_certificate /etc/nginx/ssl/nginx.crt;
     ssl_certificate_key /etc/nginx/ssl/nginx.key;
   % endif
